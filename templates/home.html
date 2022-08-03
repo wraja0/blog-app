@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block title%} Home {%endblock%}
+{%block content%}
+{%if loggedin==True%}
+<a class="create_post-btn" href="/posts/new">Create New Post</a>
+{%endif%}
+<div class="posts-container">
+    {%for post in posts%}
+    <div class="blog-card">
+        <p class="card-username">@{{post.user.username}}</p>
+        <p>{{post.timestamp}}</p>
+        <h1>{{post.title}}</h1>
+        <div class="post-body">{{post.body}}</div>
+        {%if post.user.username == username%}
+            <div class="post-control-container">
+                <a class="editlink" href="/posts/{{post.id}}/edit">Edit</a>
+                <a href="/posts/{{post.id}}/delete" class="deletebutton" > Delete</a>
+            </div>
+        {%endif%}
+    </div>
+    {%endfor%}
+</div>
+{%if error%}
+    {{error}}
+{%endif%}
+{%endblock%}

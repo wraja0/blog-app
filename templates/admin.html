@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%block title%} Admin {%endblock%}
+{%block content%}
+<div class="admin-container">
+    <h4>Table of all users and their email ids</h4> 
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>E-mail Address</th>
+        </tr>
+            {%for user in users%}
+                <tr>
+                    <td>{{user[0]}} </td> 
+                    <td>{{user[1]}}</td>
+                </tr>
+            {%endfor%}
+    </table>
+</div>
+{%endblock%}

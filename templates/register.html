@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%block title%} Register {%endblock%}
+{%block content%}
+<div class="login-form-container">
+    <h1>Sign up for an account </h1>
+    <form method="post">
+        <div class="input-container">
+            <label for="username">Username </label><input type="text" name="username" placeholder="Username" />
+        </div>
+        <div class="input-container">
+            <label for="email"> Email </label><input type="text" name="email" placeholder="youremail@examole.com" />
+        </div>
+        <div class="input-container">
+            <label for="password1">Password </label><input type="password" name="password1" placeholder="Password" />
+        </div>
+        <div class="input-container">
+            <label for="password2">Confirm Password </label><input type="password" name="password2" placeholder="Confrim password" />
+        </div>
+        <br />
+        {%if error%}
+            <p class="error-class">{{error}}</p>
+        {%endif%}
+        <button type="submit">Submit</button>
+</form>
+</div>
+
+{%endblock%}

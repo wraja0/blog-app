@@ -1,0 +1,17 @@
+version: '2.6.1'
+services: 
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: blog-user
+      POSTGRES_USER: postgres
+      POSTGRES_DB: blog
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+  web:
+    image: blog-app:0.9.8
+    depends_on:
+      - db
+    ports:
+      - '4000:4000'
+
